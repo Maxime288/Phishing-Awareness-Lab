@@ -29,7 +29,7 @@ dangers de l'ingénierie sociale et du vol d'identifiants.
 
 ## 🏗️ Contenu du Laboratoire
 
-Chaque dossier contient une reproduction fidèle (HTML/CSS) et un script
+Chaques fichiers contient une reproduction fidèle (HTML/CSS) et un script
 de démonstration :
 
 -   **`/Google-Login`** : Simulation de la mire de connexion Google
