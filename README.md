@@ -56,14 +56,6 @@ message d'alerte pédagogique au lieu d'envoyer les données à un serveur.
 
 ------------------------------------------------------------------------
 
-## 🚀 Utilisation
-
-1.  git clone https://github.com/Maxime288/Phishing-Awareness-Lab.git
-2.  cd Phishing-Awareness-Lab
-3.  Ouvrez `index.html` dans un navigateur
-
-------------------------------------------------------------------------
-
 ## 🛡️ Mesures de Protection Recommandées
 
 -   **Activer l'A2F (Authentification à deux facteurs)**\
