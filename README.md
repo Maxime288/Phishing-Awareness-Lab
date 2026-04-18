@@ -33,9 +33,8 @@ Chaques fichiers contient une reproduction fidèle (HTML/CSS) et un script
 de démonstration :
 
 -   **`/Google-Login`** : Simulation de la mire de connexion Google
--   **`/Facebook-Login`** : Simulation de la page d'accueil Facebook
--   **`/Microsoft-365`** : Simulation de l'interface entreprise *(Focus
-    : Arrière-plan dynamique)*
+-   **`/Facebook-Login`** : Simulation de la page de connexion Facebook
+-   **`/Microsoft-365`** : Simulation de la page de connexion Microsoft-365
 
 ------------------------------------------------------------------------
 
