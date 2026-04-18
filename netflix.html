@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix – Connexion</title>
+  <style>
+    /* --- Styles Globaux --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: #1a0000;
+      background-image: radial-gradient(ellipse 80% 60% at 50% 0%, #6b0000 0%, #3a0000 30%, #1a0000 55%, #0d0000 100%);
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    header { padding: 18px 44px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .logo { margin-left: 50px; }
+    .logo img { width: 130px; height: auto; }
+    
+    main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding-top: 80px; }
+    .form-box { width: 460px; text-align: left; }
+    h1 { color: #fff; font-size: 2rem; font-weight: 700; line-height: 1.25; margin-bottom: 12px; }
+    .subtitle { color: #fff; font-size: 1rem; margin-bottom: 24px; }
+    
+    /* --- Input & Erreur --- */
+    .input-container { margin-bottom: 12px; }
+    input[type="text"] {
+      width: 100%; padding: 18px 16px; background: #1c1c1c;
+      border: 1px solid #4a4a4a; border-radius: 4px; color: #fff;
+      font-size: 1rem; outline: none; display: block;
+    }
+    input:focus { border-color: #888; background: #222; }
+    .error-border { border: 1px solid #E50914 !important; }
+    .error-message {
+      color: #E50914; font-size: 0.85rem; margin-top: 8px;
+      display: none; align-items: center; gap: 6px;
+    }
+
+    button.login-btn {
+      width: 100%; padding: 18px; background: #E50914; color: #fff;
+      border: none; border-radius: 4px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; margin-bottom: 32px;
+    }
+    button.login-btn:hover { background: #f6121d; }
+
+    /* --- Aide & Footer --- */
+    .help-wrapper { margin-bottom: 36px; }
+    .help-trigger { color: #fff; font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .arrow-icon { width: 16px; height: 16px; transition: transform 0.3s ease; }
+    .rotated { transform: rotate(180deg); }
+    #help-menu { display: none; padding-top: 5px; }
+    #help-menu a { display: block; color: #fff; text-decoration: underline; font-size: 0.95rem; margin-bottom: 8px; }
+    .recaptcha { color: #737373; font-size: 0.8rem; line-height: 1.55; margin-bottom: 50px;}
+
+    footer { background-color: #141414; color: #737373; padding: 50px 15%; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; }
+    .footer-phone { margin-bottom: 30px; }
+    .footer-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
+    .footer-links a { color: #737373; text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
+
+    /* --- Style pour le bouton Langue --- */
+    .lang-selector {
+        background: #000;
+        border: 1px solid #333;
+        color: #fff;
+        padding: 8px 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin-top: 20px;
+    }
+    .lang-selector:hover { background: #111; }
+    .lang-selector .icon { display: flex; align-items: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <img src="netflix_PNG25-removebg-preview.png" alt="Logo Netflix" />
+    </div>
+  </header>
+  
+  <main>
+    <div class="form-box">
+      <h1>Saisissez vos informations<br>pour vous identifier</h1>
+      <p class="subtitle">Ou démarrez avec un nouveau compte.</p>
+      
+      <div class="input-container">
+        <input type="text" id="emailInput" placeholder="E-mail ou numéro de mobile" />
+        <div id="errorMessage" class="error-message">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="7" stroke="#E50914" stroke-width="2"/>
+            <line x1="5" y1="5" x2="11" y2="11" stroke="#E50914" stroke-width="2"/>
+            <line x1="5" y1="11" x2="11" y2="5" stroke="#E50914" stroke-width="2"/>
+          </svg>
+          Veuillez saisir une adresse e-mail ou un numéro de mobile valide.
+        </div>
+      </div>
+
+      <button type="button" class="login-btn" onclick="gererContinuer()">Continuer</button>
+      
+      <div class="help-wrapper">
+        <div class="help-trigger" onclick="toggleHelp()">
+          Obtenir de l'aide
+          <svg class="arrow-icon" id="arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" fill-rule="evenodd" d="m7.999 10.437 5.468-5.468 1.06 1.06-5.998 6a.75.75 0 0 1-1.06 0l-6-6L2.53 4.97z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div id="help-menu">
+          <a href="#">Vous avez oublié l'adresse e-mail ou le numéro de mobile ?</a>
+          <a href="#">En savoir plus sur l'identification</a>
+        </div>
+      </div>
+
+      <p class="recaptcha">
+        Cette page est protégée par Google reCAPTCHA pour nous assurer que vous n'êtes pas un robot.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-phone">Des questions ? Appelez le 0805 98 06 66 (sans frais)</div>
+    <div class="footer-links">
+      <a href="#">FAQ</a>
+      <a href="#">Centre d'aide</a>
+      <a href="#">Boutique Netflix</a>
+      <a href="#">Conditions d'utilisation</a>
+      <a href="#">Confidentialité</a>
+      <a href="#">Préférences de cookies</a>
+      <a href="#">Mentions légales</a>
+      <a href="#">Choix liés à la pub</a>
+    </div>
+    
+    <button class="lang-selector">
+        <span class="icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.72-6.53H17v-2h-6V2h-2v2H3v2h8.21c-.67 1.87-1.63 3.65-2.88 5.25C7.3 9.4 6.27 8.35 5.59 7H3.57c.92 2.14 2.22 4.09 3.86 5.75L4.85 15.5 3 13.65 0 16.65 4.85 21.5l2.88-2.85 2.54 2.51 1.41-1.41-2.54-2.51 2.54-2.51-1.41-1.42z"/>
+            </svg>
+        </span>
+        <span class="lang-text">Français</span>
+        <span class="arrow">▾</span>
+    </button>
+  </footer>
+
+  <script>
+    function toggleHelp() {
+      const menu = document.getElementById('help-menu');
+      const arrow = document.getElementById('arrow');
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        arrow.classList.remove('rotated');
+      } else {
+        menu.style.display = 'block';
+        arrow.classList.add('rotated');
+      }
+    }
+
+    function gererContinuer() {
+      const input = document.getElementById('emailInput');
+      const errorDiv = document.getElementById('errorMessage');
+      if (input.value.trim() === "") {
+        input.classList.add('error-border');
+        errorDiv.style.display = 'flex';
+      } else {
+        input.classList.remove('error-border');
+        errorDiv.style.display = 'none';
+        alert("Succès : " + input.value);
+      }
+    }
+
+    document.getElementById('emailInput').addEventListener('input', function() {
+      this.classList.remove('error-border');
+      document.getElementById('errorMessage').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
