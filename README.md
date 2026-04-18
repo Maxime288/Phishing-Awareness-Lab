@@ -34,8 +34,8 @@ de démonstration :
 
 -   **`/Google-Login`** : Simulation de la mire de connexion Google
 -   **`/Facebook-Login`** : Simulation de la page de connexion Facebook
--   **`/Microsoft-365`** : Simulation de la page de connexion Microsoft-365
--   **`/Netflix`** : Simulation de la page de connexion Netflix
+-   **`/Microsoft-365-Login`** : Simulation de la page de connexion Microsoft-365
+-   **`/Netflix-Login`** : Simulation de la page de connexion Netflix
 
 ------------------------------------------------------------------------
 
