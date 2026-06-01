@@ -38,7 +38,7 @@ de démonstration :
 -   **`/Microsoft-365-Login`** : Simulation de la page de connexion Microsoft-365
 -   **`/Netflix-Login`** : Simulation de la page de connexion Netflix
 -   **`/PayPal-Login`** : Simulation de la page de connexion PayPal
--   **`/linkedin-login`** : Simulation de la page de connexion Linkedin
+-   **`/Linkedin-login`** : Simulation de la page de connexion Linkedin
 
 
 ------------------------------------------------------------------------
