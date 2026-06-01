@@ -33,6 +33,7 @@ Chaques fichiers contient une reproduction fidèle (HTML/CSS) et un script
 de démonstration :
 
 -   **`/Google-Login`** : Simulation de la mire de connexion Google
+-   **`/Google-Login-2FA`** : Simulation de la mire de connexion Google 2FA
 -   **`/Facebook-Login`** : Simulation de la page de connexion Facebook
 -   **`/Microsoft-365-Login`** : Simulation de la page de connexion Microsoft-365
 -   **`/Netflix-Login`** : Simulation de la page de connexion Netflix
