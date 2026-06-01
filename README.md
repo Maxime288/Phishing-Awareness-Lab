@@ -39,6 +39,7 @@ de démonstration :
 -   **`/Netflix-Login`** : Simulation de la page de connexion Netflix
 -   **`/PayPal-Login`** : Simulation de la page de connexion PayPal
 -   **`/Linkedin-login`** : Simulation de la page de connexion Linkedin
+-   **`/Amazon-login`** : Simulation de la page de connexion Amazon
 
 
 ------------------------------------------------------------------------
