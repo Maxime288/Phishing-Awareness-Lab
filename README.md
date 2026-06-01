@@ -1,8 +1,8 @@
 # 🛡️ Phishing Awareness Lab : Simulations de Pages de Connexion
 
 ![Security
-Badge](https://img.shields.io/badge/Security-Educational-red)\
-![Status](https://img.shields.io/badge/Status-In_Development-yellow)
+Badge](https://img.shields.io/badge/Security-Educational-red)\ ![Status](https://img.shields.io/badge/Status-In_Development-yellow)
+
 
 ## 📖 Description
 
