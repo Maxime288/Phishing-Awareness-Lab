@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle connexion au compte</title>
+    <style>
+        /* Configuration globale de la page */
+        body {
+            margin: 0;
+            padding: 40px 10px;
+            background-color: #ffffff;
+            font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            color: #202124;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Conteneur principal - HAUTEUR RÉDUITE (padding réduit à 32px en haut/bas) */
+        .card {
+            max-width: 480px; 
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 32px 30px; /* Moins d'espace en haut et en bas */
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        /* Image du Logo Google */
+        .logo {
+            height: 32px;
+            width: auto;
+            display: inline-block;
+            margin-bottom: 20px; /* Réduit de 24px à 20px */
+        }
+
+        /* Titre principal */
+        h1 {
+            font-size: 26px; 
+            font-weight: 400;
+            color: #202124;
+            margin: 0 0 12px 0; /* Réduit de 16px à 12px */
+            line-height: 1.3;
+            letter-spacing: -0.2px;
+        }
+
+        /* Conteneur de l'adresse email et de la pastille */
+        .user-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+
+        /* Pastille verte avec l'initiale */
+        .avatar {
+            width: 28px;
+            height: 28px;
+            background-color: #689f38;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 12px;
+        }
+
+        /* Texte de l'adresse email */
+        .email-text {
+            font-size: 16px;
+            color: #3c4043;
+            font-weight: 400;
+        }
+
+        /* Ligne horizontale de séparation grise */
+        .divider {
+            border: 0;
+            border-top: 1px solid #dadce0;
+            margin: 20px 0 24px 0; /* Réduit pour gagner de la hauteur */
+        }
+
+        /* Texte de description principal */
+        .message-body {
+            font-size: 15px; 
+            line-height: 1.5;
+            color: #202124;
+            text-align: center;
+            margin: 0 0 28px 0; /* Réduit de 36px à 28px */
+        }
+
+        /* Bouton d'action bleu "Consulter l'activité" */
+        .btn-cta {
+            display: inline-block;
+            background-color: #0b57d0;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 32px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 24px;
+            margin-bottom: 28px; /* Réduit de 36px à 28px */
+            transition: background-color 0.15s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: #0842a0;
+        }
+
+        /* Texte d'introduction au lien secondaire */
+        .link-label {
+            font-size: 13px;
+            color: #5f6368;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        /* Lien URL secondaire bleu */
+        .secondary-link {
+            font-size: 13px;
+            color: #1a73e8;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .secondary-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Pied de page à l'extérieur de la carte */
+        .footer {
+            max-width: 480px;
+            width: 100%;
+            margin-top: 24px;
+            font-size: 12px;
+            color: #70757a;
+            text-align: center;
+            line-height: 1.6;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img class="logo" src="unnamed.png" alt="Google">
+
+        <h1>Nouvelle connexion au compte</h1>
+
+        <div class="user-container">
+            <div class="avatar">c</div>
+            <span class="email-text">martinezcarine118@gmail.com</span>
+        </div>
+
+        <hr class="divider">
+
+        <p class="message-body">
+            Nous avons détecté une nouvelle connexion à votre compte Google. Si c'était vous, aucune action de votre part n'est requise. Dans le cas contraire, nous vous aiderons à sécuriser votre compte.
+        </p>
+
+        <a href="#" class="btn-cta">Consulter l'activité</a>
+
+        <div class="link-label">
+            Vous pouvez aussi voir l'activité liée à la sécurité de votre compte ici :
+        </div>
+        <a href="https://myaccount.google.com/notifications" class="secondary-link">https://myaccount.google.com/notifications</a>
+    </div>
+
+    <div class="footer">
+        Cet e-mail vous a été envoyé pour vous informer de modifications importantes apportées à votre compte et aux services Google que vous utilisez.<br>
+        © 2026 Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Ireland
+    </div>
+
+</body>
+</html>
