@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerte de sécurité Google</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Réinitialisation de base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column; /* Aligne la carte et le footer verticalement */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Conteneur principal (Carte blanche) */
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            max-width: 580px;
+            width: 100%;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Conteneur pour l'image du logo */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .logo-img {
+            max-width: 110px; /* Ajustement de la taille du logo Google */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Icône Point d'exclamation */
+        .alert-icon {
+            background-color: #C5221F;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0 auto 24px auto;
+        }
+
+        /* Titre */
+        h1 {
+            color: #202124;
+            font-size: 26px;
+            font-weight: 400;
+            text-align: center;
+            line-height: 1.35;
+            margin-bottom: 20px;
+        }
+
+        /* Badge utilisateur */
+        .profile-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            background-color: #0097a7;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .email {
+            color: #3c4043;
+            font-size: 16px;
+        }
+
+        /* Ligne de séparation légère */
+        .separator {
+            border: 0;
+            border-top: 1px solid #e8eaed;
+            margin-bottom: 30px;
+        }
+
+        /* Paragraphes de texte */
+        .content p {
+            color: #202124;
+            font-size: 14.5px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Style pour le texte additionnel sous le bouton */
+        .extra-info {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14.5px;
+            line-height: 1.5;
+            color: #202124;
+        }
+
+        /* Style pour les liens textuels additionnels */
+        .card a.text-link {
+            color: #1a73e8;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .card a.text-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Bouton d'action rouge */
+        .button-container {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .btn-action {
+            display: inline-block;
+            background-color: #B02318;
+            color: white;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 24px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-action:hover {
+            background-color: #961C13;
+        }
+
+        /* Pied de page à l'extérieur de la carte */
+        .footer-text {
+            max-width: 580px;
+            width: 100%;
+            margin-top: 24px;
+            color: #5f6368;
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* Ajustements pour les écrans mobiles */
+        @media (max-width: 480px) {
+            .card {
+                padding: 24px 16px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="logo-container">
+            <img src="unnamed.png" alt="Google" class="logo-img">
+        </div>
+
+        <div class="alert-icon">!</div>
+
+        <h1>Certains de vos mots de passe enregistrés ont été divulgués en ligne</h1>
+
+        <div class="profile-badge">
+            <div class="avatar">C</div>
+            <span class="email">martinezcarine118@gmail.com</span>
+        </div>
+
+        <hr class="separator">
+
+        <div class="content">
+            <p>Certains de vos mots de passe enregistrés ont été exposés lors d'une violation de données sur un site ou une appli que vous utilisez (votre compte Google n'est pas affecté).</p>
+            <p>Le Gestionnaire de mots de passe de Google vous recommande de les changer maintenant pour protéger vos comptes.</p>
+        </div>
+
+        <div class="button-container">
+            <a href="#" class="btn-action">Vérifier les mots de passe</a>
+        </div>
+
+        <p class="extra-info">
+            Vous pouvez aussi voir l'activité liée à la sécurité de votre compte ici : <br>
+            <a href="https://myaccount.google.com/notifications" target="_blank" class="text-link">https://myaccount.google.com/notifications</a>
+        </p>
+    </div>
+
+    <div class="footer-text">
+        <p>Cet e-mail vous a été envoyé pour vous informer de modifications importantes apportées à votre compte et aux services Google que vous utilisez.</p>
+        <p>© 2026 Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Ireland</p>
+    </div>
+
+</body>
+</html>
