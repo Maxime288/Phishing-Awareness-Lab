@@ -43,6 +43,7 @@ de démonstration :
 -   **`/Linkedin-login`** : Simulation de la page de connexion Linkedin
 -   **`/Amazon-login`** : Simulation de la page de connexion Amazon
 -   **`/Caisse-Epargne-login`** : Simulation de la page de connexion Caisse d'épargne
+-   **`/Instagram-login`** : Simulation de la page de connexion Instagram
 
 
 ------------------------------------------------------------------------
