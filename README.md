@@ -32,16 +32,17 @@ dangers de l'ingénierie sociale et du vol d'identifiants.
 Chaques fichiers contient une reproduction fidèle (HTML/CSS) et une photo ou vidéo
 de démonstration :
 
--   **`/Google-Login`** : Simulation de la mire de connexion Google
--   **`/Google-Login-2FA`** : Simulation de la mire de connexion Google 2FA
--   **`/Alerte-Google`** : Simulation de la mire d'une alerte Google
--   **`/Nouvelle-Connexion-Google`** : Simulation de la mire d'une nouvelle connexion Google
+-   **`/Google-Login`** : Simulation de la page de connexion Google
+-   **`/Google-Login-2FA`** : Simulation de la page de connexion Google 2FA
+-   **`/Alerte-Google`** : Simulation d'un mail d'une alerte Google
+-   **`/Nouvelle-Connexion-Google`** : Simulation d'un mail d'une nouvelle connexion Google
 -   **`/Facebook-Login`** : Simulation de la page de connexion Facebook
 -   **`/Microsoft-365-Login`** : Simulation de la page de connexion Microsoft-365
 -   **`/Netflix-Login`** : Simulation de la page de connexion Netflix
 -   **`/PayPal-Login`** : Simulation de la page de connexion PayPal
 -   **`/Linkedin-login`** : Simulation de la page de connexion Linkedin
 -   **`/Amazon-login`** : Simulation de la page de connexion Amazon
+-   **`/Caisse-Epargne-login`** : Simulation de la page de connexion Caisse d'épargne
 
 
 ------------------------------------------------------------------------
