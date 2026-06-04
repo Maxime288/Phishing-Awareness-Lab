@@ -65,7 +65,6 @@ message d'alerte pédagogique au lieu d'envoyer les données à un serveur.
     "Conditions d'utilisation" sont inactifs
 
 ------------------------------------------------------------------------
-------------------------------------------------------------------------
 
 ## 🎓 Compétences démontrées
 
