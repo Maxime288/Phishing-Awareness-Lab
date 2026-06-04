@@ -1,387 +1,174 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinkedIn – S'identifier</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkedIn – S'identifier</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            background-color: #ffffff;
-            min-height: 100vh;
-        }
+    body { background: #ffffff; min-height: 100vh; }
 
-        /* ── HEADER ── */
-        header {
-            background: white;
-            padding: 14px 24px;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        .logo-text {
-            font-size: 28px;
-            font-weight: 700;
-            color: #0a66c2;
-            letter-spacing: -0.5px;
-        }
-        .logo-box {
-            background: #0a66c2;
-            color: white;
-            font-size: 28px;
-            font-weight: 700;
-            padding: 0 3px;
-            border-radius: 4px;
-            margin-left: 1px;
-        }
+    /* Navbar */
+    nav { background: white; padding: 14px 24px 14px 60px; }
+    nav svg { width: 4rem; }
+    .nav-logo { display: inline-flex; align-items: center; font-size: 32px; font-weight: 700; color: #0a66c2; line-height: 1; }
+    .nav-logo .box { background: #0a66c2; color: white; font-size: 20px; font-weight: 800; padding: 3px 4px 2px 3px; border-radius: 3px; line-height: 1; margin-left: 1px; }
 
-        /* ── LAYOUT ── */
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px 16px 60px;
-        }
+    /* Centrage */
+    .center { display: flex; flex-direction: column; align-items: center; padding: 32px 16px 40px; }
 
-        /* ── CARD ── */
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 0 1px #e0e0e0;
-            padding: 40px 48px 32px;
-            width: 100%;
-            max-width: 480px;
-        }
+    /* Footer */
+    .footer { text-align: center; max-width: 600px; width: 100%; margin-bottom: 24px; }
+    .footer p { font-size: 12px; color: #666; margin-bottom: 8px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 0; }
+    .footer-links a { font-size: 12px; color: #666; text-decoration: none; padding: 2px 6px; }
+    .footer-links a:hover { text-decoration: underline; color: #0a66c2; }
+    .footer-links span { font-size: 12px; color: #bbb; padding: 2px 0; }
+    .lang-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 6px 14px; border: 1px solid #888; border-radius: 4px; background: white; font-size: 13px; color: #1d2226; cursor: pointer; }
+    .lang-btn:hover { background: #f3f2ef; }
 
-        h1 {
-            font-size: 32px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
+    /* Carte */
+    .card { background: white; border-radius: 8px; border: 1px solid #e0dfdb; padding: 36px 44px 40px; width: 100%; max-width: 400px; box-shadow: 0 4px 12px rgba(0,0,0,0.07); }
+    .card h1 { font-size: 28px; font-weight: 600; color: #1d2226; margin-bottom: 4px; letter-spacing: -0.3px; }
 
-        .subtitle {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 24px;
-        }
-        .subtitle a {
-            color: #0a66c2;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .subtitle a:hover { text-decoration: underline; }
+    .new-link { font-size: 14px; color: #444; margin-bottom: 20px; }
+    .new-link a { color: #0a66c2; font-weight: 600; text-decoration: none; }
+    .new-link a:hover { text-decoration: underline; }
 
-        /* ── BOUTONS SOCIAUX ── */
-        .social-btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            width: 100%;
-            height: 52px;
-            border: 1.5px solid #999;
-            border-radius: 100px;
-            background: white;
-            font-size: 15px;
-            font-weight: 600;
-            color: #1a1a1a;
-            cursor: pointer;
-            margin-bottom: 12px;
-            transition: background 0.15s, border-color 0.15s;
-            text-decoration: none;
-        }
-        .social-btn:hover { background: #f3f2ef; border-color: #666; }
+    /* Boutons sociaux */
+    .soc-btn { width: 100%; padding: 11px 16px; border: 1px solid #888; border-radius: 24px; background: white; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; color: #1d2226; transition: background 0.15s, border-color 0.15s; }
+    .soc-btn:hover { background: #f3f2ef; border-color: #555; }
 
-        /* Icône Google SVG inline */
-        .icon-google { width: 20px; height: 20px; flex-shrink: 0; }
+    /* Mentions légales */
+    .terms { font-size: 11.5px; color: #666; line-height: 1.5; margin-bottom: 14px; text-align: center; }
+    .terms a { color: #0a66c2; text-decoration: none; }
+    .terms a:hover { text-decoration: underline; }
 
-        /* Icône Microsoft (4 carrés) */
-        .icon-microsoft {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-        }
-        .icon-microsoft span:nth-child(1) { background: #f25022; }
-        .icon-microsoft span:nth-child(2) { background: #7fba00; }
-        .icon-microsoft span:nth-child(3) { background: #00a4ef; }
-        .icon-microsoft span:nth-child(4) { background: #ffb900; }
+    /* Séparateur */
+    .divider { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .divider hr { flex: 1; border: none; border-top: 1px solid #e0dfdb; }
+    .divider span { font-size: 13px; color: #888; }
 
-        /* Icône Apple */
-        .icon-apple { font-size: 20px; line-height: 1; }
+    /* Champs */
+    .field-group { margin-bottom: 14px; }
+    .field-group label { display: block; font-size: 14px; font-weight: 600; color: #1d2226; margin-bottom: 5px; }
+    .field-group input { width: 100%; padding: 10px 12px; border: 1px solid #888; border-radius: 4px; font-size: 15px; color: #1d2226; background: white; outline: none; }
+    .field-group input:focus { border-color: #0a66c2; box-shadow: 0 0 0 1px #0a66c2; }
 
-        /* ── TEXTE LÉGAL ── */
-        .legal {
-            font-size: 12px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .legal a { color: #0a66c2; text-decoration: none; }
-        .legal a:hover { text-decoration: underline; }
+    /* Mot de passe avec icône */
+    .pwd-wrap { position: relative; }
+    .pwd-wrap input { padding-right: 44px; }
+    .eye-btn { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #555; font-size: 20px; line-height: 1; padding: 2px; }
 
-        /* ── SÉPARATEUR ── */
-        .divider {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            color: #888;
-            font-size: 13px;
-        }
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #ddd;
-        }
+    /* Liens et checkbox */
+    .forgot { display: inline-block; color: #0a66c2; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+    .forgot:hover { text-decoration: underline; }
 
-        /* ── CHAMPS ── */
-        .field { margin-bottom: 16px; }
-        .field label {
-            display: block;
-            font-size: 14px;
-            color: #1a1a1a;
-            margin-bottom: 6px;
-        }
+    .check-row { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #1d2226; margin-bottom: 22px; }
+    .check-row input { width: 16px; height: 16px; accent-color: #057642; cursor: pointer; }
 
-        .field input {
-            width: 100%;
-            height: 52px;
-            border: 1.5px solid #999;
-            border-radius: 4px;
-            padding: 0 14px;
-            font-size: 15px;
-            color: #1a1a1a;
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .field input:focus {
-            border-color: #0a66c2;
-            box-shadow: 0 0 0 1px #0a66c2;
-        }
-
-        /* Champ mot de passe avec icône œil */
-        .password-wrapper { position: relative; }
-        .password-wrapper input { padding-right: 48px; }
-        .toggle-pw {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-            color: #444;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .toggle-pw:hover { color: #111; }
-
-        /* ── MOT DE PASSE OUBLIÉ ── */
-        .forgot {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: #0a66c2;
-            text-decoration: none;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .forgot:hover { text-decoration: underline; }
-
-        /* ── CHECKBOX ── */
-        .checkbox-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 24px;
-        }
-        .custom-cb {
-            appearance: none;
-            -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #057642;
-            border-radius: 3px;
-            background: #057642;
-            cursor: pointer;
-            position: relative;
-            flex-shrink: 0;
-        }
-        .custom-cb::after {
-            content: '';
-            position: absolute;
-            left: 4px; top: 1px;
-            width: 6px; height: 11px;
-            border: 2px solid white;
-            border-top: none; border-left: none;
-            transform: rotate(45deg);
-        }
-        .custom-cb:not(:checked) { background: white; border-color: #999; }
-        .custom-cb:not(:checked)::after { display: none; }
-        .checkbox-row label {
-            font-size: 14px;
-            color: #1a1a1a;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            padding: 20px 24px;
-            
-        }
-        footer p {
-            font-size: 12px;
-            color: #666;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 4px 16px;
-        }
-        footer a { color: #666; text-decoration: none; white-space: nowrap; }
-        footer a:hover { color: #0a66c2; text-decoration: underline; }
-        .lang-btn { cursor: pointer; white-space: nowrap; color: #666; }
-        .lang-btn:hover { color: #0a66c2; }
-
-        /* ── BOUTON PRINCIPAL ── */
-        .btn-primary {
-            width: 100%;
-            height: 52px;
-            background: #0a66c2;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            border-radius: 100px;
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .btn-primary:hover { background: #004182; }
-    </style>
+    /* Bouton principal */
+    .signin-btn { width: 100%; padding: 13px; background: #0a66c2; color: white; border: none; border-radius: 24px; font-size: 16px; font-weight: 600; cursor: pointer; letter-spacing: 0.2px; }
+    .signin-btn:hover { background: #004182; }
+  </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo">
-            <span class="logo-text">Linked</span><span class="logo-box">in</span>
-        </a>
-    </header>
+  <nav>
+    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="14" viewBox="0 0 56 14" style="width:9rem;height:auto">
+      <path fill="#0a66c2" d="m22.1 8.2 3.09 3.8h-2.44L20 8.51V12h-2V2h2v5.88L22.54 5h2.55zm-8-3.4A2.7 2.7 0 0 0 11.89 6V5H10v7h2V8.73a1.73 1.73 0 0 1 1.54-1.92h.12C14.82 6.8 15 7.94 15 8.73V12h2V8.29c0-2.2-.73-3.49-2.86-3.49zM32 8.66a3 3 0 0 1 0 .44h-5.25v.07a1.79 1.79 0 0 0 1.83 1.43 2.5 2.5 0 0 0 1.84-.69l1.33 1a4.3 4.3 0 0 1-3.25 1.29 3.49 3.49 0 0 1-3.7-3.26 4 4 0 0 1 0-.49 3.58 3.58 0 0 1 3.5-3.65h.26C30.44 4.8 32 6.13 32 8.66m-1.86-.86a1.45 1.45 0 0 0-1.51-1.4h-.08a1.63 1.63 0 0 0-1.8 1.4zM2 2H0v10h6v-2H2zm36 0h2v10h-1.89v-.7a2.45 2.45 0 0 1-2 .9 3.41 3.41 0 0 1-3.32-3.5 1.4 1.4 0 0 1 0-.2 3.35 3.35 0 0 1 3-3.68h.3a2.6 2.6 0 0 1 1.9.7zm.15 6.5a1.64 1.64 0 0 0-1.4-1.84h-.22A1.76 1.76 0 0 0 34.9 8.5a1.76 1.76 0 0 0 1.63 1.85 1.62 1.62 0 0 0 1.63-1.63.8.8 0 0 0-.01-.22M8 1.8A1.27 1.27 0 0 0 6.75 3a1.25 1.25 0 0 0 2.5 0A1.27 1.27 0 0 0 8 1.8M7 12h2V5H7zM56 1v12a1 1 0 0 1-1 1H43a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1M46 5h-2v7h2zm.25-2A1.25 1.25 0 1 0 45 4.25 1.25 1.25 0 0 0 46.25 3M54 8.29c0-2.2-.73-3.49-2.86-3.49A2.71 2.71 0 0 0 48.89 6V5H47v7h2V8.73a1.73 1.73 0 0 1 1.54-1.92h.12C51.82 6.8 52 7.94 52 8.73V12h2z"/>
+    </svg>
+  </nav>
 
-    <main>
-        <div class="card">
-            <h1>S'identifier</h1>
-            <p class="subtitle">Nouveau sur LinkedIn ? <a href="#">S'inscrire</a></p>
+  <div class="center">
 
-            <!-- Boutons sociaux -->
-            <button class="social-btn">
-                <!-- Google G logo SVG -->
-                <svg class="icon-google" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-                </svg>
-                Continuer avec Google
-            </button>
+    <div class="card">
+      <h1>S'identifier</h1>
+      <p class="new-link">Nouveau sur LinkedIn&nbsp;? <a href="#">S'inscrire</a></p>
 
-            <button class="social-btn">
-                <div class="icon-microsoft">
-                    <span></span><span></span><span></span><span></span>
-                </div>
-                S'identifier avec Microsoft
-            </button>
+      <!-- Bouton Google -->
+      <button class="soc-btn">
+        <svg width="18" height="18" viewBox="0 0 48 48">
+          <path fill="#FFC107" d="M43.6 20H24v8h11.3C33.6 33.1 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6-6C34.4 6.1 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.1-4z"/>
+          <path fill="#FF3D00" d="M6.3 14.7l6.9 5.1C14.9 16.4 19.1 14 24 14c3 0 5.7 1.1 7.8 2.9l6-6C34.4 6.1 29.5 4 24 4 16.3 4 9.7 8.4 6.3 14.7z"/>
+          <path fill="#4CAF50" d="M24 44c5.3 0 10.1-1.9 13.8-5.1l-6.4-5.4C29.4 35.1 26.8 36 24 36c-5.2 0-9.5-2.9-11.2-7H6.2C9.5 35.7 16.2 44 24 44z"/>
+          <path fill="#1976D2" d="M43.6 20H24v8h11.3c-.8 2.2-2.3 4.1-4.2 5.4l6.4 5.4C41 35.1 44 30 44 24c0-1.3-.1-2.7-.4-4z"/>
+        </svg>
+        Continuer avec Google
+      </button>
 
-            <button class="social-btn">
-                <!-- Apple logo -->
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-                S'identifier avec Apple
-            </button>
+      <!-- Bouton Microsoft -->
+      <button class="soc-btn">
+        <svg width="18" height="18" viewBox="0 0 21 21">
+          <rect x="1" y="1" width="9" height="9" fill="#f25022"/>
+          <rect x="11" y="1" width="9" height="9" fill="#7fba00"/>
+          <rect x="1" y="11" width="9" height="9" fill="#00a4ef"/>
+          <rect x="11" y="11" width="9" height="9" fill="#ffb900"/>
+        </svg>
+        S'identifier avec Microsoft
+      </button>
 
-            <!-- Texte légal -->
-            <p class="legal">
-                En continuant, vous acceptez les <a href="#">Conditions d'utilisation</a>, la <a href="#">Politique de confidentialité</a> et la <a href="#">Politique relative aux cookies</a> de LinkedIn.
-            </p>
+      <!-- Bouton Apple -->
+      <button class="soc-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" id="apple-solid" fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill-rule="evenodd" d="M12.04 6.5c-.12-1.01.19-2.03.86-2.8.74-.99 1.86-1.62 3.09-1.7a4.15 4.15 0 0 1-1.02 3.13c-.68.94-1.78 1.46-2.93 1.37m5.14 6.1c.01-1.6.9-3.07 2.31-3.81a4.4 4.4 0 0 0-3.85-2c-1.6 0-2.82.95-3.49.95s-1.93-.88-3.44-.88C6.42 6.86 4 8.95 4 12.93S6.88 22 9.16 22c.8 0 2.02-.95 3.25-.95s2.11.95 3.25.95c2.47 0 4.35-5.33 4.35-5.33a4.49 4.49 0 0 1-2.82-4.07z"></path></svg>
+        S'identifier avec Apple
+      </button>
 
-            <!-- Séparateur -->
-            <div class="divider">ou</div>
+      <p class="terms">
+        En continuant, vous acceptez les <a href="#">Conditions d'utilisation</a>,
+        la <a href="#">Politique de confidentialité</a> et la
+        <a href="#">Politique relative aux cookies</a> de LinkedIn.
+      </p>
 
-            <!-- Champ e-mail -->
-            <div class="field">
-                <label for="email">E-mail ou téléphone</label>
-                <input type="text" id="email" autocomplete="username"/>
-            </div>
 
-            <!-- Champ mot de passe -->
-            <div class="field">
-                <label for="password">Mot de passe</label>
-                <div class="password-wrapper">
-                    <input type="password" id="password" autocomplete="current-password"/>
-                    <button type="button" class="toggle-pw" id="togglePw" aria-label="Afficher le mot de passe">
-                        <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 6.5c3.79 0 7.17 2.13 8.82 5.5-1.65 3.37-5.02 5.5-8.82 5.5S4.83 15.37 3.18 12C4.83 8.63 8.21 6.5 12 6.5m0-2C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12s1.12-2.5 2.5-2.5m0-2c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+      <div class="divider"><hr><span>ou</span><hr></div>
 
-            <a href="#" class="forgot">Mot de passe oublié ?</a>
+      <div class="field-group">
+        <label for="email">E-mail ou téléphone</label>
+        <input type="text" id="email" autocomplete="email" />
+      </div>
 
-            <!-- Checkbox -->
-            <div class="checkbox-row">
-                <input type="checkbox" id="stayConnected" class="custom-cb" checked/>
-                <label for="stayConnected">Rester connecté</label>
-            </div>
-
-            <!-- Bouton S'identifier -->
-            <button type="button" class="btn-primary">S'identifier</button>
+      <div class="field-group">
+        <label for="pwd">Mot de passe</label>
+        <div class="pwd-wrap">
+          <input type="password" id="pwd" autocomplete="current-password" />
+          <button class="eye-btn" onclick="
+            var i=document.getElementById('pwd');
+            var isHidden = i.type==='password';
+            i.type = isHidden ? 'text' : 'password';
+            document.getElementById('eye-visible').style.display = isHidden ? 'none' : 'block';
+            document.getElementById('eye-hidden').style.display = isHidden ? 'block' : 'none';
+          " aria-label="Afficher le mot de passe">
+            <svg id="eye-visible" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="16" height="16"><path d="M8 3a8.59 8.59 0 0 0-8 5 8.54 8.54 0 0 0 8 5 8.55 8.55 0 0 0 8-5 8.55 8.55 0 0 0-8-5m0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3m2-3a2 2 0 1 1-2-2 2 2 0 0 1 2 2"></path></svg>
+            <svg id="eye-hidden" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="16" height="16" style="display:none"><path d="M14.56 2.27 13.5 1.21 1.21 13.5l1.06 1.06 2.27-2.27A8.57 8.57 0 0 0 8 13a8.55 8.55 0 0 0 8-5 8.68 8.68 0 0 0-2.1-3.13zM8 11a3 3 0 0 1-2.6-1.52L6.87 8A2 2 0 0 0 10 8a2 2 0 0 0-.29-1l1.47-1.47A7.1 7.1 0 0 1 13.46 8 7.12 7.12 0 0 1 8 11M8 5a3 3 0 0 1 2.6 1.51l-1.1 1.1a2 2 0 0 0-2.89-1.9L5.4 4.51A8.46 8.46 0 0 1 8 4a8.55 8.55 0 0 0-8 4 8.63 8.63 0 0 0 1.49 2.1l1.07-1.07A7.15 7.15 0 0 1 2.54 8 7.12 7.12 0 0 1 8 5"></path></svg>
+          </button>
         </div>
-    </main>
+      </div>
 
-    <footer>
-        <p>
-            LinkedIn Corporation &copy; 2026
-            <a href="#">Conditions générales d'utilisation de LinkedIn</a>
-            <a href="#">Politique de confidentialité</a>
-            <a href="#">Directives de la communauté</a>
-            <a href="#">Politique relative aux cookies</a>
-            <a href="#">Politique de copyright</a>
-            <a href="#">Envoyer un commentaire</a>
-            <span class="lang-btn">Langue ▼</span>
-        </p>
-    </footer>
+      <a href="#" class="forgot">Mot de passe oublié&nbsp;?</a>
 
-    <script>
-        // Toggle afficher/masquer mot de passe
-        const togglePw = document.getElementById('togglePw');
-        const pwInput  = document.getElementById('password');
-        const eyeIcon  = document.getElementById('eye-icon');
+      <div class="check-row">
+        <input type="checkbox" id="stay" checked />
+        <label for="stay">Rester connecté</label>
+      </div>
 
-        const pathOpen   = "M12 6.5c3.79 0 7.17 2.13 8.82 5.5-1.65 3.37-5.02 5.5-8.82 5.5S4.83 15.37 3.18 12C4.83 8.63 8.21 6.5 12 6.5m0-2C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12s1.12-2.5 2.5-2.5m0-2c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5z";
-        const pathClosed = "M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z";
+      <button class="signin-btn">S'identifier</button>
+    </div>
+  </div>
 
-        togglePw.addEventListener('click', () => {
-            const show = pwInput.type === 'password';
-            pwInput.type = show ? 'text' : 'password';
-            eyeIcon.querySelector('path').setAttribute('d', show ? pathClosed : pathOpen);
-        });
-    </script>
+  <footer style="background:#ffffff;padding:20px 24px 28px;text-align:center">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px">
+      <span style="font-size:12px;color:#666">LinkedIn Corporation © 2026</span>
+      <a href="https://www.linkedin.com/legal/user-agreement/" style="font-size:12px;color:#666;text-decoration:none">Conditions générales d'utilisation de LinkedIn</a>
+      <a href="https://www.linkedin.com/legal/privacy-policy/" style="font-size:12px;color:#666;text-decoration:none">Politique de confidentialité</a>
+      <a href="https://www.linkedin.com/help/linkedin/answer/a403269/" style="font-size:12px;color:#666;text-decoration:none">Directives de la communauté</a>
+      <a href="https://www.linkedin.com/legal/cookie-policy/" style="font-size:12px;color:#666;text-decoration:none">Politique relative aux cookies</a>
+      <a href="https://www.linkedin.com/legal/copyright-policy/" style="font-size:12px;color:#666;text-decoration:none">Politique de copyright</a>
+      <a href="https://www.linkedin.com/help/linkedin/" style="font-size:12px;color:#666;text-decoration:none">Envoyer un commentaire</a>
+      <button style="font-size:12px;color:#666;background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:0">Langue ▾</button>
+    </div>
+  </footer>
+
 </body>
 </html>
