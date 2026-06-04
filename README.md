@@ -43,6 +43,7 @@ Chaque dossier contient une reproduction fidèle (HTML/CSS/JavaScript) ainsi qu'
 -   **`/Caisse-Epargne-login`** : Simulation de la page de connexion Caisse d'épargne
 -   **`/Instagram-login`** : Simulation de la page de connexion Instagram
 -   **`/Linkedin-login`** : Simulation de la page de connexion Linkedin
+-   **`/Tiktok-login`** : Simulation de la page de connexion Tiktok
 
 
 ------------------------------------------------------------------------
