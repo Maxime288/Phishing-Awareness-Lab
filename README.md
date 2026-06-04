@@ -81,7 +81,7 @@ Ce projet met en œuvre plusieurs compétences techniques et méthodologiques :
 
 -   **Activer l'A2F (Authentification à deux facteurs)**\
 -   **Gestionnaires de mots de passe**\
--   **Vérification HTTPS**
+-   **Vérification du domaine et du certificat HTTPS**
 
 ------------------------------------------------------------------------
 
