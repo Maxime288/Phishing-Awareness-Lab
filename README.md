@@ -29,8 +29,7 @@ dangers de l'ingénierie sociale et du vol d'identifiants.
 
 ## 🏗️ Contenu du Laboratoire
 
-Chaques fichiers contient une reproduction fidèle (HTML/CSS) et une photo ou vidéo
-de démonstration :
+Chaque dossier contient une reproduction fidèle (HTML/CSS) ainsi qu'une photo ou une vidéo de démonstration :
 
 -   **`/Google-Login`** : Simulation de la page de connexion Google
 -   **`/Google-Login-2FA`** : Simulation de la page de connexion Google 2FA
