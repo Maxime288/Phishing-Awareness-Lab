@@ -65,7 +65,20 @@ message d'alerte pédagogique au lieu d'envoyer les données à un serveur.
     "Conditions d'utilisation" sont inactifs
 
 ------------------------------------------------------------------------
+------------------------------------------------------------------------
 
+## 🎓 Compétences démontrées
+
+Ce projet met en œuvre plusieurs compétences techniques et méthodologiques :
+
+- **Analyse d'interfaces web** : étude des éléments visuels et ergonomiques des plateformes populaires.
+- **Reproduction fidèle d'interfaces utilisateurs** : conception de simulations réalistes à des fins pédagogiques.
+- **Développement Web (HTML, CSS, JavaScript)** : création d'interfaces interactives et gestion des événements côté client.
+- **Sensibilisation à l'ingénierie sociale** : compréhension des mécanismes psychologiques exploités lors des attaques de phishing.
+- **Compréhension des vecteurs d'attaque liés au phishing** : identification des techniques utilisées pour tromper les utilisateurs et des moyens de s'en protéger.
+- **Conception de supports pédagogiques en cybersécurité** : création d'un environnement de démonstration destiné à la formation et à la prévention.
+
+------------------------------------------------------------------------
 ## 🛡️ Mesures de Protection Recommandées
 
 -   **Activer l'A2F (Authentification à deux facteurs)**\
