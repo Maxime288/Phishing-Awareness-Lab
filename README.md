@@ -84,6 +84,16 @@ Ce projet met en œuvre plusieurs compétences techniques et méthodologiques :
 -   **Vérification du domaine et du certificat HTTPS**
 
 ------------------------------------------------------------------------
+## 🔬 Limites des simulations
+
+Ces démonstrations reproduisent uniquement l'apparence visuelle des services.
+
+Aucune donnée n'est transmise à un serveur distant.
+Les formulaires sont interceptés localement à des fins pédagogiques.
+
+L'objectif est de montrer qu'une interface visuelle seule ne permet pas de garantir l'authenticité d'un site web.
+
+------------------------------------------------------------------------
 
 ## 🧠 Objectif global
 
