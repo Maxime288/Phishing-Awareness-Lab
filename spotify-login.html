@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify — Connexion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Circular+Std:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1DB954;
+      --green-hover: #1ed760;
+      --black: #121212;
+      --border: #3e3e3e;
+      --text: #ffffff;
+      --muted: #a7a7a7;
+      --red: #e91429;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Circular Std', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      overflow-y: scroll;
+    }
+
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    /* ── Card ── */
+    .card {
+      width: 100%;
+      max-width: 734px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeUp .4s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Logo ── */
+    .logo { margin-bottom: 40px; }
+    .logo svg { width: 48px; height: 48px; fill: white; display: block; }
+
+    /* ── Titre ── */
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 40px;
+    }
+
+    /* ── Formulaire ── */
+    .form { width: 100%; max-width: 324px; display: flex; flex-direction: column; }
+
+    .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+
+    label { font-size: 0.875rem; font-weight: 700; }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--black);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color .15s;
+    }
+    input[type="email"]:focus { border-color: white; }
+    input[type="email"].error { border-color: var(--red) !important; }
+
+    .error-msg {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      color: var(--red);
+      font-size: 0.8125rem;
+      margin-top: 4px;
+    }
+    .error-msg.visible { display: flex; }
+    .error-msg svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── Bouton principal ── */
+    .btn-primary {
+      width: 100%;
+      padding: 15px;
+      background: var(--green);
+      color: black;
+      border: none;
+      border-radius: 500px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background .15s, transform .1s;
+    }
+    .btn-primary:hover { background: var(--green-hover); }
+    .btn-primary:active { transform: scale(0.98); }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 324px;
+      margin: 28px 0;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .divider span { font-size: 0.875rem; color: var(--muted); font-weight: 700; }
+
+    /* ── Boutons sociaux ── */
+    .social-stack { width: 100%; max-width: 324px; display: flex; flex-direction: column; gap: 12px; }
+
+    .btn-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      padding: 13px 16px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 500px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color .15s, transform .1s;
+    }
+    .btn-social:hover { border-color: white; }
+    .btn-social:active { transform: scale(0.98); }
+
+    .btn-social .icon {
+      position: absolute;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+    }
+
+    .google-g  { width: 20px; height: 20px; }
+    .fb-icon   { width: 22px; height: 22px; border-radius: 50%; }
+    .apple-icon{ width: 18px; height: 18px; }
+
+    /* ── Footer inscription ── */
+    .footer-signup {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-muted { font-size: 1rem; color: var(--muted); }
+    .footer-link {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer-link:hover { color: var(--green); }
+
+    /* ── reCAPTCHA ── */
+    .footer-recaptcha {
+      margin-top: 48px;
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+      max-width: 380px;
+    }
+    .footer-recaptcha a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .footer-recaptcha a:hover { color: var(--green); }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="card">
+
+    <!-- Logo -->
+    <div class="logo">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Spotify">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.516 17.312a.748.748 0 01-1.031.25c-2.823-1.727-6.376-2.118-10.563-1.16a.749.749 0 01-.333-1.46c4.582-1.047 8.512-.597 11.677 1.34a.75.75 0 01.25 1.03zm1.472-3.268a.937.937 0 01-1.288.308c-3.228-1.983-8.15-2.557-11.975-1.399a.937.937 0 11-.546-1.793c4.368-1.328 9.796-.685 13.501 1.596a.935.935 0 01.308 1.288zm.127-3.403C15.37 8.35 9.395 8.148 5.797 9.252a1.124 1.124 0 11-.653-2.152c4.16-1.263 11.08-1.02 15.457 1.596a1.124 1.124 0 01-1.486 1.686v.007z"/>
+      </svg>
+    </div>
+
+    <h1>Bon retour<br>parmi nous</h1>
+
+    <!-- Formulaire email -->
+    <div class="form">
+      <div class="field">
+        <label for="email">Adresse e-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" />
+        <div class="error-msg" id="email-error">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#e91429" stroke-width="2"/>
+            <path d="M12 7v5" stroke="#e91429" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="16.5" r="1" fill="#e91429"/>
+          </svg>
+          Veuillez saisir votre adresse e-mail.
+        </div>
+      </div>
+      <button class="btn-primary" type="button" onclick="valider()">Continuer</button>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"><span>ou</span></div>
+
+    <!-- Boutons sociaux -->
+    <div class="social-stack">
+
+      <button class="btn-social" type="button">
+        <span class="icon">
+          <svg class="google-g" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/>
+            <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-3.98v3.09C3.515 21.3 7.615 24 12.255 24z"/>
+            <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62h-3.98a11.86 11.86 0 000 10.76l3.98-3.09z"/>
+            <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.64 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/>
+          </svg>
+        </span>
+        Continuer avec Google
+      </button>
+
+      <button class="btn-social" type="button">
+        <span class="icon">
+          <svg class="fb-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="#1877F2"/>
+            <path fill="white" d="M16.67 15.47l.44-2.88h-2.76V10.7c0-.79.39-1.56 1.62-1.56h1.26V6.69s-1.14-.2-2.23-.2c-2.28 0-3.76 1.38-3.76 3.87v2.23H8.89v2.88h2.35V22a9.41 9.41 0 002.9 0v-6.53h2.53z"/>
+          </svg>
+        </span>
+        Continuer avec Facebook
+      </button>
+
+      <button class="btn-social" type="button">
+        <span class="icon">
+          <svg class="apple-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+        </span>
+        Continuer avec Apple
+      </button>
+
+    </div>
+
+    <!-- Footer inscription -->
+    <div class="footer-signup">
+      <p class="footer-muted">Vous n'avez pas de compte ?</p>
+      <a href="#" class="footer-link">S'inscrire</a>
+    </div>
+
+    <!-- reCAPTCHA -->
+    <p class="footer-recaptcha">
+      Ce site est protégé par reCAPTCHA. La <a href="#">Politique de confidentialité</a> et les <a href="#">Conditions d'utilisation</a> de Google s'appliquent.
+    </p>
+
+  </div>
+</div>
+
+<script>
+  function valider() {
+    const input = document.getElementById('email');
+    const error = document.getElementById('email-error');
+    if (!input.value.trim()) {
+      input.classList.add('error');
+      error.classList.add('visible');
+    } else {
+      input.classList.remove('error');
+      error.classList.remove('visible');
+    }
+  }
+  document.getElementById('email').addEventListener('input', function() {
+    if (this.value.trim()) {
+      this.classList.remove('error');
+      document.getElementById('email-error').classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>
