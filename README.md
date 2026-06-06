@@ -44,6 +44,7 @@ Chaque dossier contient une reproduction fidèle (HTML/CSS/JavaScript) ainsi qu'
 -   **`/Instagram-login`** : Simulation de la page de connexion Instagram
 -   **`/Linkedin-login`** : Simulation de la page de connexion Linkedin
 -   **`/Tiktok-login`** : Simulation de la page de connexion Tiktok
+-   **`/Spotify-login`** : Simulation de la page de connexion Spotify
 
 
 ------------------------------------------------------------------------
