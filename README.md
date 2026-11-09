@@ -46,6 +46,7 @@ Chaque dossier contient une reproduction fidèle (HTML/CSS/JavaScript) ainsi qu'
 -   **`/Tiktok-login`** : Simulation de la page de connexion Tiktok
 -   **`/Spotify-login`** : Simulation de la page de connexion Spotify
 -   **`/Docusign-login`** : Simulation de la page de connexion Docusign
+-   **`/Github-login`** : Simulation de la page de connexion Github
 
 
 ------------------------------------------------------------------------
